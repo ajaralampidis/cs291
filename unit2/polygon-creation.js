@@ -26,12 +26,17 @@ function PolygonGeometry(sides) {
 		var y = Math.sin( angle );
 
 		// YOUR CODE HERE
+		geo.vertices.push(new THREE.Vector3(x,y,0.0))
 		//Save the vertex location - fill in the code
 
 	}
 	// YOUR CODE HERE
 	// Write the code to generate minimum number of faces for the polygon.
-
+	for (var point = 1; point < sides-1; point++){
+		console.log(point)
+		console.log(geo.vertices[point])
+		geo.faces.push(new THREE.Face3(0, point, (point+1)))
+	}
 	// Return the geometry object
 	return geo;
 }
